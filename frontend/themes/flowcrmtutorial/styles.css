@@ -1,0 +1,652 @@
+@import 'animate.css';
+@import "theme-editor.css";
+@import "login-form.css";
+@import "register.css";
+@import "main-layout.css";
+@import "comments.css";
+@import "artwork.css";
+@import "add.css";
+@import "accessinfo.css";
+@import "contact.css";
+@import "icon.css";
+@import "forgot-password.css";
+@import "main-artwork.css";
+
+@media all and (max-width: 1100px) {
+}
+
+.emcview-layout {
+   border-radius: 10px;
+   border-top: 1px solid white;
+   border-bottom: 1px solid white;
+   background: linear-gradient(to left, rgba(31, 215, 232, 0.873) 0%, rgba(2, 29, 78, 0.681) 40%);
+   /*scroll-snap-align: start;*/
+}
+
+.main-emc {
+    animation: fadeInDown 0.9s none;
+    padding: 0;
+    background: black;
+    /*background-image: url("./images/background.png");*/
+    background-size: cover;
+    overflow-y: scroll;
+    /*scroll-snap-type: y mandatory;*/
+}
+
+.display {
+    font-size: 24px;
+    text-align: right;
+    padding: 0px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.buttonlayout {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);    
+}
+
+vaadin-button.btn {
+    margin: var(--lumo-space-xs);
+    width: 40px;
+    height: 60px;
+}
+
+/*-------*/
+
+.image-icon {
+   fill: #0ef;
+}
+
+vaadin-app-layout.app-layout::part(navbar) {
+   background: black;
+}
+
+.toggle {
+   width: 30px;
+   height: 30px;
+   color: #0ef;
+   border-radius: 20px;
+}
+
+.online {
+   border: 0.9px solid #0ef;
+}
+
+vaadin-icon.back-icon::before {
+  /*top: 50px;*/
+}
+
+vaadin-icon.back-icon {
+  border-radius: 20px;
+  padding: 8px;
+  margin-left: 15px;
+  width: 40px;
+  height: 40px;
+  top: 50px;
+  border: 0.9px solid rgb(0, 255, 255);
+}
+
+.nav-details vaadin-details-summary:active {
+  color: #0ef;
+}
+
+.drawer-links{
+  font-family: serif;
+  color: white;
+}
+
+vaadin-icon.nav-icons {
+  color: #0ef;
+  margin-right: 10px;
+  width: 17px;
+  height: 17px;
+  margin-left: 20px;
+}
+
+.nav-details vaadin-details-summary::part(toggle) {
+  color: #0ef;
+  margin-right: 20px;
+  margin-left: 5px;
+}
+
+.nav-details vaadin-details-summary {
+  color: white;
+  font-family: serif;
+  font-size: 
+}
+
+.anchor {
+  margin-bottom: 15px;
+  margin-left: 60px;
+  font-family: serif;
+}
+
+.nav-line {
+  height: 0.9px;
+  width: 100%;
+  background: #0ef;
+}
+
+.username {
+  font-size: 13px;
+  font-family: serif;
+  color: white;
+}
+
+.drawer-link {
+  width: 100%; 
+  font-family: fantasy; 
+  color: white;
+}
+
+.user-name {
+  font-size: 15px;
+  font-family: fantasy;
+}
+
+.settings-icon {
+  background: transparent;
+  color: #0ef;
+}
+
+.avatar {
+  position: relative;
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  border-top: 0.9px solid #0ef;
+  border-bottom: 0.9px solid #0ef;
+  background-size: cover;
+}
+
+.header-content {
+  border-radius: 40px;
+  padding: 5px;
+  margin-bottom: 10px;
+  position: top;
+}
+
+.header-layout {
+  margin-left: 50px;
+  margin-bottom: 100px;
+}
+
+.nav-header-layout {
+  max-height: 700px;
+  margin-bottom: ;
+}
+
+.update-button {
+  margin-left: 120px;
+  margin-top: 300px;
+  border: 1px solid #0ef;
+  color: white;
+  background: transparent;
+  width: 100px;
+  height: 50px;
+  border-radius: 40px;
+  animation: bounceIn 3s none;
+}
+
+.update-button:hover {
+  scale: 0.91;
+  color: black;
+  background: #0ef;
+  border: 1px solid white;
+}
+
+.word {
+  color: white;
+}
+ 
+.course {
+  animation: backInRight 2s none;
+}
+
+.dialog {
+  animation: slideInDown 1s none;
+}
+
+.settings-avatar {
+  animation: backInDown 5s none;
+}
+
+.student-name {
+  font-family: serif;
+  animation: fadeIn 3s none;
+}
+
+.logo {
+  font-size: 15px;
+  font-family: monospace;
+  color: white;
+  animation: fadeInDown 4s none;
+}
+
+.online {
+  animation: zoomIn 5s none;
+}
+
+.emcview-layout {
+  animation: fadeInLeft 2s none;
+}
+
+.settings-avatar {
+  border:/*-bottom:*/ 1px solid #0ef;
+  border-top: 1px solid #0ef;
+}
+
+vaadin-message-list.message-list vaadin-message::part(icon) {
+  border: 1px solid rgb(0, 255, 255);
+  color: green;
+}
+
+vaadin-icon.back-icon:active {
+  background: rgb(0, 255, 255);
+  color: black;
+  border: 1px solid white;
+}
+
+.send-icon {
+  border: 1px solid rgb(0, 255, 255);
+  margin-top: 13px;
+  size: 15px;
+  border-radius: 40px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 80px;
+  background: ;
+  width: 70px;
+  height: 60px;
+  color: rgb(0, 255, 255);
+}
+
+vaadin-icon.send-icon:active {
+  scale: 0.92;
+  color: black;
+  border: 1px solid white;
+  background: rgb(0, 255, 255);
+  outline-color: rgb(0, 255, 255);
+  box-shadow: -3px -3px 15px rgb(0, 255, 255);
+  transition: .1s;
+  transition-property: box-shadow;
+}
+
+vaadin-text-field.input::part(input-field) {
+  background-color: #212121;
+  height: 60px;
+  padding: 10px;
+  border: 1px solid rgb(0, 255, 255);
+  border-radius: 40px;
+  margin-top: 30px;
+  margin-bottom: 11px;
+  margin-right: 10px;
+  margin-left: 5px;
+  width: 257px;
+}
+
+vaadin-text-field.input[focused] > [slot="suffix"] {
+  color: rgb(0, 255, 255);
+}
+
+vaadin-text-field.input > [slot="suffix"] {
+  color: white;
+}
+
+vaadin-text-field.input[focused]::part(input-field) {
+  color: rgb(0, 255, 255);
+  background-color: #212121;
+  outline-color: rgb(0, 255, 255);
+  box-shadow: -3px -3px 15px rgb(0, 255, 255);
+  transition: .1s;
+  border: 1px solid white;
+  transition-property: box-shadow;
+}
+
+vaadin-button.close {
+   font-family: serif;
+   border-radius: 30px;
+   border: 0.5px solid skyblue;
+   font-size: 15px;
+   background: transparent;
+   color: white;
+   border-bottom: 1px solid #0ef;
+   border-top: 1px solid #0ef;
+}
+
+vaadin-button.save {
+   font-family: serif;
+   border-radius: 30px;
+   border: 0.5px solid lightblue;
+   font-size: 15px;
+   background: transparent;
+   color: white;
+   border-bottom: 1px solid #0ef;
+   border-top: 1px solid #0ef;
+}
+
+.view-dialog {
+   font-family: serif;
+}
+
+vaadin-confirm-dialog-overlay.view-dialog > [slot="cancel-button"] {
+   font-size: 15px;
+   font-family: serif;
+   color: white;
+   width: 100px;
+   margin-left: 90px;
+   border-radius: 20px;
+   border-bottom: 1px solid #0ef;
+   border-top: 1px solid #0ef;	
+}
+
+vaadin-confirm-dialog-overlay.view-dialog > [slot="confirm-button"] {
+   background: transparent;
+   font-size: 15px;
+   font-weight: 5px;
+   font-family: serif;
+   color: white;
+   width: 100px;
+   margin-left: 90px;
+   border-radius: 20px;
+   border-bottom: 1px solid #0ef;
+   border-top: 1px solid #0ef;
+}
+
+vaadin-confirm-dialog-overlay.view-dialog::part(overlay) {
+   backdrop-filter: blur(5px);
+   background: var(--lumo-contrast-50pct);
+   color: black;
+   border-top: 1px solid #0ef;
+   border-bottom: 1px solid #0ef;
+}
+
+vaadin-confirm-dialog-overlay.view-dialog::part(header) {
+   background: transparent;
+   color: black;
+   font-family: serif;
+   font-size: 10px;
+}
+ 
+vaadin-confirm-dialog-overlay.view-dialog::part(footer) {
+  background: transparent;
+}
+
+
+vaadin-app-layout.comments-main[overlay] {
+   background: var(--lumo-shade-30pct);
+}
+
+vaadin-app-layout.comments-main::part(navbar) {
+   background: black;
+   border-radius: 20px;
+   border-top: 0.5px solid rgb(0, 255, 255);
+   border-bottom: 0.5px solid rgb(0, 255, 255);
+}
+
+vaadin-app-layout.app-layout[drawer-opened] {
+}
+
+.nav-header-layout {
+   border-radius: 0 20px 20px 0;
+   justify-content: center;
+   margin-bottom: ;
+   background: black;
+   border-right: 1px solid #0ef;
+}
+
+vaadin-app-layout.app-layout::part(drawer) {
+   border-radius: 0 20px 20px 0;
+   background: black;
+   border-right: 1px solid #0ef;
+}
+
+vaadin-dialog-overlay.dialog::part(header) {
+   background: transparent;
+}
+
+vaadin-dialog-overlay.dialog::part(footer) {
+   background: transparent;
+}
+
+.image {
+  border-radius: 10px;
+  border-bottom: 2px solid #0ef;
+  border-top: 2px solid #0ef;
+}
+
+vaadin-dialog-overlay.dialog::part(overlay) {
+   border-radius: 50px;
+   padding: 20px;
+   border-bottom: 2px solid #0ef;
+   border-top: 2px solid #0ef;
+   backdrop-filter: blur(5px);
+   background: var(--lumo-contrast-50pct);
+}
+
+.settings-avatar{
+   width: 100px;
+   height: 100px;
+}
+
+vaadin-message-list.message-list::part(list) {
+  background: ;
+  overflow-x: hidden;
+  padding: 0;
+  width: 343px;
+}
+
+vaadin-message[theme~="message"] > vaadin-avatar {
+  border-top: 1px solid #0ef;
+  border-bottom: 1px solid #0ef;
+}
+
+vaadin-message[theme~="message"]::part(content) {
+  background: var(--lumo-contrast-10pct);
+  border-radius: 20px;
+  border-top: 1px solid #0ef;
+  border-bottom: 1px solid #0ef;
+  padding: 10px;
+  max-width: 300px;
+  margin-right: 85px;
+}
+
+.back-icon {
+   color: rgb(0, 255, 255);
+   /*margin-left: 10px;*/
+}
+
+.comments-main {
+   animation: fadeInDown 0.9s none;
+   background: var(--lumo-shade-90pct);
+}
+
+.comment-name {
+   font-family: serif;
+   font-weight: bold;
+   font-size: 15px;
+   margin-left: 10px;
+}
+
+.pen-name {
+   font-style: italic;
+}
+
+.comments-dialog {
+   justify-content: center;
+   align-items: center;
+}
+
+.cancel {
+   border-radius: 30px;
+   border: 0.5px solid lightblue;
+   font-size: 18px;
+   background: transparent;
+   color: white;
+   border-bottom: 1px solid #0ef;
+   border-top: 1px solid #0ef;
+   padding-left: 13px;
+   padding-right: 13px;
+}
+
+.okay-button {
+   border-bottom: 1px solid #0ef;
+   border-top: 1px solid #0ef;
+   color: white;
+   background: hsl(214, 90%, 48%);
+}
+
+
+.view-icon {
+   width: 30px;
+   height: 30px;
+   color: #0ef;
+}
+
+.more-icon {
+   width: 30px;
+   height: 30px;
+   color: white;
+   margin-left: 20px;
+}
+
+.heart-icon {
+   width: 30px;
+   height: 30px;
+   color: #0ef;
+   margin-left: 10px;
+}
+
+.view-button {
+   margin-left: 20px;
+   margin-right: 20px;
+   color: white;
+   width: 30px;
+   height: 30px;
+}
+
+.comment-button {
+   width: 30px;
+   height: 30px;
+   color: #0ef;
+}
+
+.dialog-header {
+   color: white;
+   font-style: italic;
+   font-size: 15px;
+}
+
+.register-button {
+   color: white;
+   background: hsl(214, 90%, 48%);
+}
+
+.icon {
+   color: white;
+   margin-right: 110px;
+   background-color: gray;
+ }
+
+.add-artwork-main {
+   font-size: 15px;
+   color: var(--lumo-contrast-70pct);
+   padding-left: 10px;
+   padding-right: 10px;
+}
+
+:root {
+   background: var(--lumo-shade-90pct);
+   padding-bottom: 0;
+   margin-top: 0;
+   border: none;
+   margin: 0;
+   animation: animate_fadeInLeft;
+   --animate-duration: 800ms;
+   --animate-delay: 2s;
+}
+
+.nav-icon {
+   padding-left: 10px;
+   padding-right: 10px;
+   width: 40px;
+   margin-right: 20px;
+   height: 40px;
+   color: #0ef;
+   background: transparent;
+   border-radius: 20px;
+   border: 1px solid #0ef;
+}
+
+.scroller {
+   color: white;
+}
+
+.nav-username {
+   font-style: italic;
+   font-weight: bold;
+   color: white;
+   display: none;
+}
+
+.nav-header-avatar {
+   border-top: 1px solid #0ef;
+   border-bottom: 1px solid #0ef;
+   width: 170px;
+   height: 170px;
+}
+
+.emc-header {
+   background-color: red;
+   color: white;
+   margin-top: 0;
+}
+
+.student-name {
+    animation-name: zoomIn;
+    font-weight: bold;
+    color: white;
+}
+
+.course {
+    font-size: 20px;
+    font-weight: none;
+    font-family: cursive;
+    color: white;
+}
+
+a[highlight] {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.settings-layout {
+    margin-top: 0;
+    justify-content: center;
+    align-items: center;
+    text-color: white;
+    border-radius: 0;
+    background: radial-gradient(circle, darkgray, darkgray);   
+}
+
+.register-form {
+    width: 100%;
+    max-width: 700px;
+    color: white;
+}
+
+/*.toggle {
+   animation: zoomIn 5s none;
+   color: #0ef;
+   border: 0.5px solid #0ef;   
+   border-radius: 20px;
+}
+
+.toggle:active {
+  background: rgb(0, 255, 255);
+  color: black;
+  border: 1px solid white;
+}*/

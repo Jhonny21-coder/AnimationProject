@@ -1,0 +1,17 @@
+{
+  "frontendFolder": "/data/data/com.termux/files/home/MyVaadinProject/frontend",
+  "themeFolder": "themes",
+  "themeResourceFolder": "/data/data/com.termux/files/home/MyVaadinProject/frontend/generated/jar-resources",
+  "staticOutput": "/data/data/com.termux/files/home/MyVaadinProject/target/classes/META-INF/VAADIN/webapp/VAADIN/static",
+  "generatedFolder": "generated",
+  "statsOutput": "/data/data/com.termux/files/home/MyVaadinProject/target/classes/META-INF/VAADIN/config",
+  "frontendBundleOutput": "/data/data/com.termux/files/home/MyVaadinProject/target/classes/META-INF/VAADIN/webapp",
+  "devBundleOutput": "/data/data/com.termux/files/home/MyVaadinProject/target/dev-bundle/webapp",
+  "devBundleStatsOutput": "/data/data/com.termux/files/home/MyVaadinProject/target/dev-bundle/config",
+  "jarResourcesFolder": "/data/data/com.termux/files/home/MyVaadinProject/frontend/generated/jar-resources",
+  "themeName": "flowcrmtutorial",
+  "clientServiceWorkerSource": "/data/data/com.termux/files/home/MyVaadinProject/target/sw.ts",
+  "pwaEnabled": true,
+  "offlineEnabled": true,
+  "offlinePath": "'offline.html'"
+}

@@ -1,0 +1,75 @@
+.contact-link:active{
+  text-decoration-color: #0ef;
+  text-decoration-line: underline;
+  text-underline-offset: 8px;
+  text-decoration-thickness: 0.15px;
+}
+
+.contact-link {
+  color: white;
+}
+
+.access-details {
+  text-decoration-color: #0ef;
+  text-decoration-line: underline;
+  text-underline-offset: 8px;
+  text-decoration-thickness: 0.15px;
+  margin-bottom: 10px;
+  color: white;
+  font-size: 15px;
+  font-family: serif;
+}
+
+.noinfo-span {
+  text-decoration-color: #0ef;
+  text-decoration-line: underline;
+  text-underline-offset: 8px;
+  text-decoration-thickness: 0.15px;
+  margin-left: 15px;
+  margin-bottom: 10px;
+  color: white;
+  font-size: 15px;
+  font-family: serif;
+}
+
+.contact-details vaadin-details-summary:active {
+  color: white;
+}
+
+.contact-details vaadin-details-summary {
+  color: var(-lumo-contrast-70pct);
+  margin-left: 10px;
+}
+
+.contact-details vaadin-details-summary::part(toggle) {
+  color: #0ef;
+}
+
+.add-contact-icon {
+  width: 17px;
+  height: 17px;
+  color: #0ef;
+  margin-left: 80px;
+}
+
+.edit-contact-icon {
+  width: 17px;
+  height: 17px;
+  color: #0ef;
+  margin-left: 80px;
+}
+
+.edit-contact-text {
+  color: white;
+  margin-left: 15px;
+  font-family: serif;
+  font-size: 12px;
+}
+
+.add-contact-text {
+  margin-left: 15px;
+  color: white;
+  font-family: serif;
+  font-size: 12px;
+}
+

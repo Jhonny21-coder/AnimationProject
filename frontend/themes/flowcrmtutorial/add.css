@@ -1,0 +1,111 @@
+@import 'animate.css';
+
+.custom-field {
+  margin-top: 80px;
+}
+
+vaadin-text-field.custom-field::part(input-field) {
+  border: 0.5px solid white;
+  height: 3em;
+  transition: 0.6s;
+  border-radius: 20px;
+  background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 215, 232, 0.873) 60%);
+}
+
+vaadin-text-field.custom-field {
+  cursor: pointer;
+}
+
+vaadin-text-field.custom-field > input {
+  color: black;
+}
+
+vaadin-text-field.custom-field:active {
+  scale: 0.92;
+}
+
+vaadin-text-field.custom-field > [slot="suffix"] {
+  color: #0ef;
+  animation: bounce 3s none;
+}
+
+vaadin-text-field.custom-field::part(label) {
+  color: white;
+  font-family: serif;
+}
+/**/
+.form-layout {
+  margin-top: 60px;
+}
+
+/* Add User Info */
+vaadin-app-layout.register-form::part(navbar){
+ background: black;    
+}
+
+vaadin-app-layout.register-form::part(content) {
+  justify-content: center;
+  align-items: center;
+  
+}
+
+/* Add Student Indo */
+.time-picker {
+  animation: fadeInRight 4s none;
+}
+
+vaadin-time-picker.time-picker::part(input-field) {
+  border: 0.5px solid white;
+  height: 3em;
+  border-radius: 20px;
+  background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 215, 232, 0.873) 60%);
+}
+
+vaadin-time-picker.time-picker > input {
+  background: linear-gradient(to right, black 80%, white 10%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+vaadin-time-picker.time-picker::part(label) {
+  color: white;
+  font-family: serif;
+}
+
+vaadin-time-picker.time-picker::part(toggle-button) {
+  color: #0ef;
+  animation: bounce 1s none;
+}
+
+vaadin-text-area.text-area::part(input-field) {
+  border: 0.5px solid white;
+  height: 3em;
+  transition: 0.6s;
+  border-radius: 20px;
+  background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 215, 232, 0.873) 60%);
+}
+
+vaadin-text-area.text-area {
+  color: black;
+  cursor: pointer;
+  animation: fadeInLeft 3s none;
+}
+
+vaadin-text-field.register-field > input {
+  color: black;
+}
+
+vaadin-text-area.text-area:active {
+  scale: 0.92;
+}
+
+vaadin-text-area.text-area > [slot="suffix"] {
+  color: #0ef;
+  animation: bounce 3s none;
+}
+
+vaadin-text-area.text-area::part(label) {
+  color: white;
+  font-family: serif;
+}

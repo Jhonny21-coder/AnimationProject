@@ -1,0 +1,43 @@
+@import 'animate.css';
+
+.comments-count {
+  font-family: serif;
+  color: white;
+  font-size: 12px;
+  /*margin-left: 36px;*/
+}
+
+.icons {
+  animation: pulse 1s infinite;
+}
+
+.back-icon {
+  animation: bounceInRight 3s none;
+}
+
+.message-list {
+  animation: fadeInUp 3s none;
+}
+
+.send-icon {
+  animation: fadeInRight 4s none;
+}
+
+.input {
+  animation: bounceInUp 3s none;
+}
+
+/*.back-icon:hover {
+  animation: fadeOutLeft 1s forwards;
+}*/
+
+.comment-name {
+  animation: lightSpeedInRight 4s none;
+}
+
+.more-icon:hover, .comment-button:hover, .heart-icon:hover, .view-icon:hover,
+.view-button:hover {
+  animation: fadeOutUp 0.9s forwards;
+  display: inline-block;
+}
+

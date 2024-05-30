@@ -1,0 +1,132 @@
+@import 'animate.css';
+
+.form-link {
+   animation: fadeInUp 7s none;
+   font-size: 15px;
+   color: #0ef;
+   margin-top: 40px;
+}
+
+.forgot-password {
+   animation: fadeInRight 3s none;
+   color: #0ef;
+   margin-top: 70px;
+}
+
+.form-link:hover {
+   text-decoration: underline;
+}
+
+.login-text {
+  font-family: serif;
+  animation: fadeInDown 5s none;
+  background: linear-gradient(270deg, gray 0%, rgba(31, 215, 232, 0.873) 60%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+vaadin-email-field.email > input:placeholder-shown {
+  color: var(--lumo-shade-60pct);
+}
+
+vaadin-email-field.email::part(input-field) {
+  color: black;
+  border: 0.5px solid white;
+  height: 3em;
+  border-radius: 20px;
+  background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 215, 232, 0.873) 60%);
+}
+
+vaadin-password-field.password::part(input-field) {
+  color: black;
+  border-radius: 20px;
+  height: 3em;
+  border: 0.5px solid white;
+  background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 215, 232, 0.873) 60%);
+}
+
+.email, .button {
+  animation: fadeInLeft 3s none;
+}
+
+vaadin-email-field.email {
+  cursor: pointer;
+  transition: 0.6s;
+}
+
+vaadin-password-field.password:active {
+  scale: 0.98;
+}
+
+vaadin.password-field.password {
+  cursor: pointer;
+  transition: 0.6s;
+}
+
+vaadin-email-field.email:active {
+  scale: 0.92;
+}
+
+vaadin-email-field.email > [slot="suffix"] {
+  color: #0ef;
+  animation: bounce 3s none;
+}
+
+vaadin-email-field.email::part(label) {
+  color: white;
+  font-family: serif;
+}
+
+vaadin-password-field.password::part(label) {
+  color: white;
+  font-family: serif;
+}
+
+vaadin-password-field.password::part(reveal-button) {
+  color: #0ef;
+  animation: bounce 3s none;
+}
+
+.form{
+  animation: fadeInDown 0.9s none;
+  background-image: url('./images/background.png');
+  background-size: cover;
+}
+
+vaadin-button.button {
+  font-family: serif;
+  margin-top: 30px;
+  width: 8em;
+  height: 3em;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 1rem 2.5rem;
+  border: 0.5px solid white;;
+  outline: none;
+  border-radius: 40px;
+  cursor: pointer;
+  text-transform: uppercase;
+  background: linear-gradient(to left, rgba(31, 215, 232, 0.873) 0%, rgba(2, 29, 78, 0.681) 40%);
+  color: white;
+  font-weight: 700;
+  transition: 0.6s;
+  box-shadow: 0px 0px 60px #1f4c65;
+  -webkit-box-reflect: below 20px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
+}
+
+vaadin-button.button:active {
+  scale: 0.92;
+}
+
+vaadin-button.button:hover {
+  animation: fadeOutLeft 3s none;
+  background: rgb(2,29,78);
+  background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 215, 232, 0.873) 60%);
+  color: black;
+}
+
+.text {
+  margin-left: 50px;
+  animation: bounce 3s none;
+}

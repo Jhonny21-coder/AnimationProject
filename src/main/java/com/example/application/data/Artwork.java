@@ -17,6 +17,10 @@ public class Artwork {
     @JoinColumn(name = "student_info_id")
     private StudentInfo studentInfo;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     @NotEmpty(message = "Please provide the image")
     private String artworkUrl;
 
@@ -35,6 +39,14 @@ public class Artwork {
 
     public void setId(Long id) {
     	this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public StudentInfo getStudentInfo() {

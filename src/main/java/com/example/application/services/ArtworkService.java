@@ -34,6 +34,7 @@ public class ArtworkService {
 
         if (studentInfo != null) {
             Artwork artwork = new Artwork();
+            artwork.setUser(user);
             artwork.setStudentInfo(studentInfo);
             artwork.setArtworkUrl(artworkUrl);
             artwork.setDateOfPost(dateOfPost);

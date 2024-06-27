@@ -1,0 +1,55 @@
+.name-div {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: #0ef;
+   font-family: serif;
+   font-size: 12px;
+   margin-top: 10px;
+}
+
+/*.share-name {
+   color: #0ef;
+   font-family: serif;
+   font-size: 12px;
+}*/
+
+.share-image {
+   max-height: 515px;
+}
+
+.share-posted {
+   color: var(--lumo-contrast-70pct);
+   font-style: italic;
+   font-size: 12px;
+}
+
+.share-title {
+   color: white;
+   font-family: serif;
+   font-size: 14px;   
+}
+
+.share-header-layout {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+vaadin-button.login-button {
+   font-family: serif;
+   border-radius: 30px;
+   border: 0.5px solid lightblue;
+   font-size: 15px;
+   background: transparent;
+   color: white;
+   border-bottom: 1px solid #0ef;
+   border-top: 1px solid #0ef;
+   margin-left: 20px;
+}
+
+.share-header-text {
+   color: white;
+   font-size: 11px;
+   margin-left: 0px;
+}

@@ -60,7 +60,7 @@ import java.io.FileInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
-@Route(value = "emc-view", layout=MainLayout.class)
+@Route(value = "emc-vieww", layout=MainLayout.class)
 @PageTitle("EmcView | TAG")
 public class EmcView extends VerticalLayout {
 

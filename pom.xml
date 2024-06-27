@@ -80,8 +80,7 @@
 	<!--<dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-core</artifactId>
-	    <version>24.3.5</version>
-        </dependency>-->
+        </dependency> -->
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-spring-boot-starter</artifactId>
@@ -145,7 +144,7 @@
                     </execution>
                 </executions>
             </plugin>
-        </plugins>
+	</plugins>
     </build>
 
     <profiles>

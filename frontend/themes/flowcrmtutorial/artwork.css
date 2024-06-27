@@ -1,3 +1,101 @@
+vaadin-button.feed-comment > vaadin-icon, vaadin-button.feed-like > vaadin-icon,
+vaadin-button.feed-heart > vaadin-icon{
+   width: 30px;
+   height: 30px;
+}
+
+vaadin-button.feed-like::part(label), vaadin-button.feed-heart::part(label),
+vaadin-button.feed-comment::part(label){
+    font-size: 14px;
+    color: white;
+}
+
+.feed-comment, .feed-like, .feed-heart {
+   width: 100px;
+   background: transparent;
+   margin: 0;
+   padding: 0;
+}
+
+vaadin-button.feed-comment > vaadin-icon{
+   color: var(--lumo-success-text-color);
+}
+
+vaadin-button.feed-heart > vaadin-icon{
+   color: var(--lumo-error-color);
+}
+
+vaadin-button.feed-like > vaadin-icon{
+   color: var(--lumo-primary-color);
+}
+
+.feed-date-posted {
+   color: var(--lumo-contrast-70pct);
+   font-style: italic;
+   font-size: 8px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: var(--lumo-contrast-20pct);
+   height: 15px;
+   margin: 0;
+   width: 100%;
+}
+
+.feed-name {
+   margin-top: 0;
+   font-size: 12px;
+}
+
+vaadin-app-layout.main-feed[overlay] {
+   background: black;
+   user-select: none;
+}
+
+.profile-layout2 {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-top: 0.5px solid gray;
+   background: var(--lumo-contrast-10pct);
+   display: flex;
+}
+
+vaadin-button.feed-follow {
+   color: var(--lumo-primary-color);
+   background: transparent;
+}
+
+.feed-avatar {
+   pointer-events: none;
+   margin-left: 10px;
+   margin-top: 10px;
+   width: 50px;
+   height: 50px;
+   border: 1px solid gray;
+   margin-bottom: 5px;
+}
+
+vaadin-icon.feed-share {
+   display: none;
+}
+
+.main-feed-buttons {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-bottom: 10px;
+}
+
+.main-feed-image {
+   position: relative;
+   display: inline-block;
+   padding: 0;
+   margin: none;
+   pointer-events: none;
+}
+
+/*------------------*/
 vaadin-app-layout.artwork-main::part(overlay) {
    display: none;
 }
@@ -9,7 +107,6 @@ vaadin-icon.hearticon{
 
 .heartreactions-span {
   color: white;
-  font-family: serif;
 }
 
 vaadin-icon.likeicon{
@@ -19,25 +116,7 @@ vaadin-icon.likeicon{
 
 .totalreactions-span {
   color: white;
-  font-family: serif;
 }
-
-/*vaadin-button.like-button:active{
-  content: "Unlike";
-  border-radius: 20px;
-  font-size: 15px;
-  margin-left: 50px;
-  background: #0ef;
-  font-family: serif;
-}
-
-vaadin-button.unlike:hover {
-  animation: fadeOutUp 3s none;
-}
-
-vaadin-button.unheart:hover {
-  animation: fadeOutUp 3s none;
-}*/
 
 vaadin-button.unlike {
   border-radius: 20px;
@@ -48,7 +127,6 @@ vaadin-button.unlike {
 
 vaadin-button.unlike::part(label) {
    color: var(--lumo-shade-70pct);
-   font-family: serif;
 }
 
 vaadin-button.unheart {
@@ -59,13 +137,11 @@ vaadin-button.unheart {
 
 vaadin-button.unheart::part(label) {
    color: var(--lumo-shade-70pct);
-   font-family: serif;
 }
 
 .total-reactions {
   font-size: 12px;
   color: white;
-  font-family: serif;
 }
 
 vaadin-button.like-button > vaadin-icon {
@@ -105,7 +181,6 @@ vaadin-button.heart-button::part(label) {
 .artworks-count {
    font-size: 12px;
    margin-right: 10px;
-   font-family: serif;
    text-shadow: 2px 2px 4px black;
    color: white;
 }
@@ -151,7 +226,6 @@ vaadin-app-layout.artwork-main::part(navbar) {
 }
 
 .title {
-   font-family: cursive;
    color: white;
    font-size: 25px;
 }
@@ -163,7 +237,6 @@ vaadin-app-layout.artwork-main::part(navbar) {
 }
 
 .fullname {
-   font-family: serif;
    animation: bounceInDown 2s none;
    font-size: 15px;
    font-weight: bold;

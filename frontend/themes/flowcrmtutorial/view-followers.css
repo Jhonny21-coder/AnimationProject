@@ -1,0 +1,106 @@
+.view-exists-button {
+   display: none;
+}
+
+.view-avatar-div {
+   align-items: center;
+}
+
+.view-fullname {
+   font-family: serif;
+   color: white;
+   font-size: 15px;  
+}
+
+.view-avatar {
+   pointer-events: none;
+}
+
+vaadin-button.view-unfollow-button {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 10px;
+   width: 90px;
+   height: 30px;
+   margin: 0;
+   border-radius: 7px;
+   color: white;
+   background: var(--lumo-contrast-40pct);
+   font-family: serif;
+}
+
+vaadin-grid.view-grid::part(last-column-cell){
+   width: 20px;
+   background: black;
+}
+
+vaadin-grid.view-grid::part(first-column-cell){
+   width: 140px;
+   border: none;
+}
+
+vaadin-grid.view-grid::part(row){
+   margin: 0;
+   border: none;
+}
+
+vaadin-grid.view-grid::part(cell){
+   font-size: 12px;
+   font-family: serif;
+   margin: 0;
+   background: black;
+   border: none;
+}
+
+vaadin-grid.view-grid {
+   background: black;
+   border: none;
+}
+
+vaadin-button.view-follow-button {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 13px;
+   width: 90px;
+   height: 30px;
+   margin: 0;
+   border-radius: 7px;
+   color: white;
+   background: var(--lumo-primary-color);   
+   font-family: serif;
+}
+
+vaadin-text-field.view-search-field > [slot="prefix"] {
+   margin-left: 5px;
+}
+
+vaadin-text-field.view-search-field > input:placeholder-shown{
+   font-family: serif;
+   font-size: 13px;
+}
+
+vaadin-text-field.view-search-field {
+   width: 100%;
+   margin-top: 10px;
+   margin-bottom: 10px;
+}
+
+vaadin-text-field.view-search-field::part(input-field) {
+   border-radius: 20px;
+   color: white;
+   font-family: serif;
+   font-size: 14px;
+}
+
+.view-total-followers {
+   font-style: italic;
+   font-family: serif;
+   color: var(--lumo-contrast-90pct);
+}
+
+.view-firstname {
+   font-family: serif;
+   color: white;
+}

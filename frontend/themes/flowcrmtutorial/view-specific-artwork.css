@@ -1,0 +1,21 @@
+vaadin-button.feed-like {
+   
+}
+
+vaadin-app-layout.profile-app-layout::part(navbar){
+   border-top: 0.5px solid gray;
+   background: var(--lumo-contrast-10pct);
+}
+
+.specific-footer{
+   /*background: var(--lumo-contrast-10pct);
+   padding-top: 10px;
+   padding-bottom: 10px;*/
+}
+
+.specific-image {
+   pointer-events: none;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}

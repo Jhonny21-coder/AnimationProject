@@ -32,6 +32,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.FileWriter;
+import com.example.application.views.comment.CommentView;
 
 @Route("")
 @PageTitle("Login | TAG")
@@ -94,7 +95,7 @@ public class LoginView extends VerticalLayout {
                 // Store user information in session
                 VaadinSession.getCurrent().setAttribute("user", email);
                 // Redirect to MainLayout
-                getUI().ifPresent(ui -> ui.navigate(EmcView.class));
+                getUI().ifPresent(ui -> ui.navigate(MainFeed.class));
                 // Show notification
                 Notification.show("Login successful!", 3000, Position.TOP_CENTER)
                         .addThemeVariants(NotificationVariant.LUMO_SUCCESS);

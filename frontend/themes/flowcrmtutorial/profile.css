@@ -1,0 +1,223 @@
+.header-followers-layout {
+}
+
+.view-more {
+   margin-left: 20vh;
+   font-size: 13px;
+   font-family: serif;
+   color: var(--lumo-primary-text-color);
+}
+
+.header-total-followers {
+   font-family: serif;
+   font-size: 14px;
+   font-style: italic;
+   margin: 0;
+}
+
+.profile-total-followers, .profile-total-artworks {
+   font-size: 12px;
+   font-family: serif;
+   color: white;
+   margin: 0;
+   padding: 0;
+}
+
+.divdiv1, .divdiv2 {
+   display-flex;
+   justify-content: center;
+   align-items: center;
+   margin: 0;
+   font-size: 11px;
+   font-family: serif;
+}
+
+.second-follow-layout {
+   /*border-bottom: 0.5px solid gray;*/
+}
+
+vaadin-button.profile-image-button {
+   border-radius: 10px;
+   font-family: serif;
+   color: white;
+   width: 100%;
+   background: var(--lumo-contrast-20pct);
+}
+
+.profile-fullname {
+   color: white;
+   font-size: 15px;
+   font-family: serif;
+}
+
+vaadin-button.follow-button {
+   width: 105px;
+   font-size: 13px;
+   color: white;
+   background: var(--lumo-primary-color);
+   border-radius: 10px;
+   font-family: serif;
+}
+
+.no-followers {
+   color: var(--lumo-contrast-40pct);
+   font-family: serif;   
+}
+
+.div1, .div2, .div3{
+   display-flex;
+   justify-content: center;
+   align-items: center;
+   margin: 0;
+   font-size: 11px;
+   font-family: serif;
+}
+
+.follower-span {
+   font-style: italic;
+   font-family: serif;
+   color: white;
+}
+
+.follower-image1, .follower-image2, .follower-image3 {
+   pointer-events: none;
+   height: 150px;
+   width: 100px;
+   border-radius: 20px;
+}
+
+vaadin-button.unfollow-button {
+   font-size: 13px;
+   width: 105px;
+   background: var(--lumo-contrast-40pct);
+   color: white;
+   border-radius: 10px;
+   font-family: serif;
+}
+
+.profile-contact {
+   color: white;
+   font-family: serif;
+}
+
+vaadin-confirm-dialog-overlay.profile-more-dialog{
+   user-select: none;
+}
+
+vaadin-confirm-dialog-overlay.profile-more-dialog::part(content){
+   background: var(--lumo-shade-20pct);
+}
+
+vaadin-confirm-dialog-overlay.profile-more-dialog > [slot="confirm-button"] {
+   margin-top: 15px;
+   font-family: serif;
+   width: 100px;
+   border-radius: 10px;
+}
+
+vaadin-confirm-dialog-overlay.profile-more-dialog::part(footer),
+vaadin-confirm-dialog-overlay.profile-more-dialog::part(header){
+   font-family: serif;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: rgba(0, 0, 0, 0.50);
+}
+
+vaadin-confirm-dialog-overlay.profile-more-dialog::part(overlay){
+   border-radius: 20px;
+   border-bottom: 1px solid gray;
+   border-top: 1px solid gray;
+}
+
+.profile-contact-text {
+   margin-left: 50px;
+   color: var(--lumo-contrast-80pct);
+   font-family: serif;
+   font-style: italic;
+   border-bottom: 1px solid var(--lumo-contrast-70pct);
+}
+
+.profile-span {
+   margin: 0;
+   color: white;
+   font-weight: bold;
+}
+
+vaadin-button.profile-information {
+   color: var(--lumo-contrast-80pct);
+}
+
+.profile-information-layout {
+   margin: 0;
+   font-size: 14px;
+   font-family: serif;
+   background: black;
+   border-bottom: 0.5px solid gray;
+}
+
+vaadin-app-layout.profile-app-layout::part(navbar){
+   align-items: center;
+   margin: 0;
+   background: black;
+   border-bottom: 0.5px solid gray;
+}
+
+vaadin-icon.profile-back-button {
+   margin: 0;
+   color: white;
+   margin-left: 20px;
+}
+
+.profile-text {
+   font-family: serif;
+   font-style: italic;
+   font-size: 12px;
+   margin-left: 10px;
+}
+
+.profile-follow-layout {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.profile-artworks-layout {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.profile-button-layout {
+   border-bottom: 0.5px solid gray;
+   border-top: 0.5px solid gray;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: var(--lumo-contrast-5pct);
+}
+
+vaadin-app-layout.profile-app-layout[overlay] {
+   background: black;
+   user-select: none;
+}
+
+.profile-name {
+   /*font-family: serif;*/
+   color: white;
+}
+
+.profile-layout {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: linear-gradient(to left, var(--lumo-contrast-20pct) 50%, 
+   	       var(--lumo-contrast-10pct) 50%);
+}
+
+.profile-avatar {
+   pointer-events: none;
+   border: 1px solid gray;
+   width: 120px;
+   height: 120px;
+}

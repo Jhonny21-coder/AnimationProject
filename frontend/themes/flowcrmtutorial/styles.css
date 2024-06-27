@@ -11,8 +11,20 @@
 @import "icon.css";
 @import "forgot-password.css";
 @import "main-artwork.css";
+@import "wait.css";
+@import "share-artwork.css";
+@import "profile.css";
+@import "view-followers.css";
+@import "artwork-images.css";
+@import "view-specific-artwork.css";
+@import "comment-section.css";
+@import "reply.css";
 
 @media all and (max-width: 1100px) {
+}
+
+vaadin-app-layout.app-layout::part(navbar) {
+   border-bottom: 0.5px solid gray;
 }
 
 .emcview-layout {
@@ -464,12 +476,12 @@ vaadin-message[theme~="message"]::part(content) {
    background: var(--lumo-shade-90pct);
 }
 
-.comment-name {
+/*.comment-name {
    font-family: serif;
    font-weight: bold;
    font-size: 15px;
    margin-left: 10px;
-}
+}*/
 
 .pen-name {
    font-style: italic;

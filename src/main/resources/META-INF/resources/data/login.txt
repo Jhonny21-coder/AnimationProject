@@ -25,3 +25,19 @@ Email: jhonny
 Password: shane123
 Email: studentmanagementsystem
 Password: marahay_santos_ylar@BSEMC-1A
+Email: ' OR '1'='1' --
+Password: ' OR '1'='1' --
+Email: ' OR '1'='1
+Password: ' OR '1'='1
+Email: ' OR '1'='1'
+Password: ' OR '1'='1'
+Email: ' OR '1'='1' ---
+Password: ' OR '1'='1' ---
+Email: OR '1'='1' --
+Password: OR '1'='1' --
+Email: lee
+Password: 
+Email: sue@gmail.com
+Password: sue123
+Email: ha
+Password: 

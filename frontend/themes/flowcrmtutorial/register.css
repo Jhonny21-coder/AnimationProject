@@ -153,7 +153,7 @@ vaadin-button.button1:hover {
 
 .register-form {
   overflow: hidden;
-  background-image: url('./images/background.png');
+  background-image: url('./register_images/background.png');
   background-size: cover;
 }
 

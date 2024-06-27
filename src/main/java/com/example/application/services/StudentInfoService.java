@@ -51,8 +51,4 @@ public class StudentInfoService {
     public void updateStudentInfo(StudentInfo studentInfo){
 	studentRepository.save(studentInfo);
     }
-
-    public StudentInfo getStudentInfoById(Long studentInfoId) {
-        return studentRepository.findById(studentInfoId).orElse(null);
-    }
 }

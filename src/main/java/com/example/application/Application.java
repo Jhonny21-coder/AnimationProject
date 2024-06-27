@@ -7,7 +7,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import com.vaadin.flow.server.PWA;
+import com.vaadin.flow.component.page.Push;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
+@Push
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
 @Theme(value = "flowcrmtutorial", variant = Lumo.DARK)
 @PWA(

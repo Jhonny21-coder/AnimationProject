@@ -1,0 +1,55 @@
+.messenger-link {
+   color: white;
+   font-size: 20px;
+   font-family: sans-serif;
+   background: var(--lumo-primary-color);
+   padding: 10px;
+   border-radius: 10px;
+   border: 1px solid white;
+}
+
+vaadin-confirm-dialog-overlay.view-dialog > [slot="header"] {
+   color: black;
+}
+
+vaadin-confirm-dialog-overlay.wait-dialog > [slot="cancel-button"] {
+   font-size: 15px;
+   font-family: serif;
+   color: white;
+   width: 100px;
+   margin-left: 90px;
+   border-radius: 20px;
+   background: red;
+}
+
+vaadin-confirm-dialog-overlay.wait-dialog > [slot="confirm-button"] {
+   background: transparent;
+   font-size: 15px;
+   font-weight: 5px;
+   font-family: serif;
+   color: white;
+   width: 100px;
+   margin-left: 90px;
+   border-radius: 20px;
+   background: green;
+}
+
+vaadin-confirm-dialog-overlay.wait-dialog::part(overlay) {
+   background-image: url('./register_images/images.png');
+   background-size: cover;
+   color: black;
+   font-family: serif;
+}
+
+vaadin-confirm-dialog-overlay.wait-dialog::part(header) {
+   font-family: serif;
+   font-size: 10px;
+   color: black;
+   background: red;
+   border-radius: 20px;
+}
+
+vaadin-confirm-dialog-overlay.view-dialog::part(footer) {
+  background: transparent;
+  color: black;
+}

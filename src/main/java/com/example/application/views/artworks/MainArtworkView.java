@@ -230,7 +230,8 @@ public class MainArtworkView extends AppLayout {
 
     private void menuIconListener(MenuItem share, MenuItem download, Artwork artwork){
         share.addClickListener(event -> {
-            String imageUrl = "https://summary-spider-internally.ngrok-free.app/artwork_images/" + artwork.getArtworkUrl();
+            String imageUrl = "https://summary-spider-internally.ngrok-free.app/shared-artwork/" + artwork.getId();
+            //String imageUrl = "http://localhost:8080/shared-artwork/" + artwork.getId();
 
             openShareDialog(imageUrl);
         });

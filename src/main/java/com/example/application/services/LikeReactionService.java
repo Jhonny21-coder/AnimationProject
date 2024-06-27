@@ -38,6 +38,10 @@ public class LikeReactionService {
         return likeReactionRepository.findAll();
     }
 
+    public void saveReaction(LikeReaction reaction){
+    	likeReactionRepository.save(reaction);
+    }
+
     public void saveLikeReaction(String userEmail, Long artworkId, Long like){
 
     	List<LikeReaction> existingReactions = likeReactionRepository.findByArtworkId(artworkId);

@@ -32,7 +32,14 @@
 }*/
 
 .comment-name {
-  animation: lightSpeedInRight 4s none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: serif;
+  font-size: 12px;
+  margin-left: 30px;
+  /*animation: lightSpeedInRight 4s none;*/
 }
 
 .more-icon:hover, .comment-button:hover, .heart-icon:hover, .view-icon:hover,

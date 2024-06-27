@@ -167,6 +167,7 @@ public class MainLayout extends AppLayout {
     }
 
     private void createDrawer(){
+    	RouterLink artworkFeedLink = createLink(MainFeed.class, VaadinIcon.GLOBE, "Artwork Feed");
 	RouterLink studentsLink = createLink(EmcView.class,VaadinIcon.GROUP,"Students");
 	RouterLink artworkLink = createLink(MainArtworkView.class,VaadinIcon.PALETTE,"Artworks");
 	RouterLink accessInfoLink = createSecondaryLink(AccessInfo.class,VaadinIcon.USER,"Access Information");
@@ -184,7 +185,7 @@ public class MainLayout extends AppLayout {
 	details.setOpened(false);
 	details.addClassName("nav-details");
 
-	VerticalLayout layout = new VerticalLayout(navHeader, studentsLink, artworkLink, details, signoutLink);
+	VerticalLayout layout = new VerticalLayout(navHeader, artworkFeedLink, studentsLink, artworkLink, details, signoutLink);
 	layout.setWidthFull();
 
 	addToDrawer(layout);

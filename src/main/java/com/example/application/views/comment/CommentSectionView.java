@@ -40,14 +40,16 @@ import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.upload.Upload;
 import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.notification.NotificationVariant;
 import com.vaadin.flow.component.avatar.Avatar;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.confirmdialog.ConfirmDialog;
-import com.vaadin.flow.component.page.Push;
+import com.vaadin.flow.component.grid.Grid;
 
 import java.util.Set;
 import java.util.List;
+import java.util.Collections;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -74,6 +76,7 @@ public class CommentSectionView extends AppLayout implements HasUrlParameter<Lon
 
     private final TextArea inputField = new TextArea();
     private Span noComments = new Span("No comments yet");
+    private final Grid<User> userGrid = new Grid<>(User.class, false);
 
     public CommentSectionView(CommentService commentService, UserServices userService, ArtworkService artworkService,
     	LikeReactionService likeService, HeartReactionService heartService, CommentReactionService commentReactionService,
@@ -157,8 +160,16 @@ public class CommentSectionView extends AppLayout implements HasUrlParameter<Lon
     	Avatar avatar = new Avatar();
     	avatar.addClassName("comment-user-avatar");
 
+    	Div avatarDiv = new Div(avatar);
+	avatarDiv.addClickListener(event -> {
+            UI.getCurrent().navigate(UserProfile.class, user.getId());
+        });
+
 	Span name = new Span(user.getFullName());
 	name.addClassName("comment-user-fullname");
+	name.addClickListener(event -> {
+            UI.getCurrent().navigate(UserProfile.class, user.getId());
+        });
 
         String avatarFile = "src/main/resources/META-INF/resources/register_images/" + user.getProfileImage();
 
@@ -174,6 +185,32 @@ public class CommentSectionView extends AppLayout implements HasUrlParameter<Lon
 
 	Icon moreIcon = new Icon(VaadinIcon.ELLIPSIS_DOTS_H);
 	moreIcon.addClassName("comment-more-icon");
+	moreIcon.addClickListener(event -> {
+	    Dialog dialog = new Dialog();
+	    dialog.addClassName("post-more-dialog");
+
+	    Button button1 = new Button("Save Post", new Icon(VaadinIcon.PLUS_CIRCLE));
+	    Button button2 = new Button("Report Post", new Icon(VaadinIcon.EXCLAMATION_CIRCLE));
+	    Button button3 = new Button("Hide Post", new Icon(VaadinIcon.CLOSE_CIRCLE));
+	    Button button4 = new Button("Add To Favorites", new Icon(VaadinIcon.PIN_POST));
+	    Button copyButton = new Button("Copy Link", new Icon(VaadinIcon.LINK));
+
+	    String imageUrl = "http://localhost:8080/shared-artwork/" + artwork.getId();
+	    createCopyListener(imageUrl, copyButton);
+
+	    button1.addClassName("post-more-button");
+	    button2.addClassName("post-more-button");
+	    button3.addClassName("post-more-button");
+	    button4.addClassName("post-more-button");
+	    copyButton.addClassName("post-more-button");
+
+	    VerticalLayout layout = new VerticalLayout();
+	    layout.add(button1, button2, button3, button4, copyButton);
+
+	    dialog.add(layout);
+
+	    dialog.open();
+	});
 
 	String description = artwork.getDescription();
 
@@ -184,20 +221,32 @@ public class CommentSectionView extends AppLayout implements HasUrlParameter<Lon
 	Span title = new Span(description);
 	title.addClassName("comment-title");
 
-	//Div moreIconDiv = new Div(moreIcon, title);
-	//moreIconDiv.addClassName("comment-more-icon-div");
-
-	HorizontalLayout layout = new HorizontalLayout(moreIcon, avatar, name);
+	HorizontalLayout layout = new HorizontalLayout(moreIcon, avatarDiv, name);
 	layout.addClassName("comment-user-layout");
-	layout.addClickListener(event -> {
-            UI.getCurrent().navigate(UserProfile.class, user.getId());
-        });
 
 	return new VerticalLayout(layout, title);
     }
 
+    private void createCopyListener(String imageUrl, Button copyButton){
+        copyButton.addClickListener(event -> {
+            copyToClipboard(imageUrl);
+            Notification.show("Link copied to clipboard", 1000, Notification.Position.MIDDLE)
+                .addThemeVariants(NotificationVariant.LUMO_SUCCESS);
+        });
+    }
+
+    private void copyToClipboard(String text) {
+        String jsCode = "navigator.clipboard.writeText('" + text + "').then(function() { "
+                + "console.log('Copying to clipboard was successful!'); "
+                + "}, function(err) { "
+                + "console.error('Could not copy text: ', err); "
+                + "});";
+        UI.getCurrent().getPage().executeJs(jsCode);
+    }
+
     private VerticalLayout createComment(Long artworkId){
     	List<Comment> comments = commentService.getCommentsByArtworkId(artworkId);
+	Collections.reverse(comments);
 
 	VerticalLayout commentLayout = new VerticalLayout();
 
@@ -261,7 +310,7 @@ public class CommentSectionView extends AppLayout implements HasUrlParameter<Lon
     }
 
     private Div createCommentFooter(Comment comment){
-    	Span likeButton = new Span("Like");
+    	Span likeButton = new Span("React");
 	likeButton.addClassName("comment-buttons");
 
 	Span reacts = new Span();
@@ -296,8 +345,14 @@ public class CommentSectionView extends AppLayout implements HasUrlParameter<Lon
 
 	if(!replies.isEmpty()){
 	    viewReply.setVisible(true);
-	    viewReply.setText("View " + formatValue(replies.size()) + " replies");
-	    viewReply.addClassName("comment-view-reply");
+
+	    if(replies.size() == 1){
+	       viewReply.setText("View " + formatValue(replies.size()) + " reply");
+	       viewReply.addClassName("comment-view-reply");
+	    }else{
+	       viewReply.setText("View " + formatValue(replies.size()) + " replies");
+	       viewReply.addClassName("comment-view-reply");
+	    }
 	}else{
 	    viewReply.setVisible(false);
 	}
@@ -333,7 +388,10 @@ public class CommentSectionView extends AppLayout implements HasUrlParameter<Lon
         dialog.addClassName("comment-dialog");
 
 	AtomicLong totalReacts = new AtomicLong(reactions.size());
-	reacts.setText(formatValue(totalReacts.get() + 999899));
+
+	if(totalReacts.get() != 0){
+           reacts.setText(formatValue(totalReacts.get()));
+        }
 
 	User currentUser = userService.findCurrentUser();
 
@@ -373,7 +431,11 @@ public class CommentSectionView extends AppLayout implements HasUrlParameter<Lon
             dialog.close();
         });
 
-	dialog.add(likeIcon, heartIcon, happyIcon);
+	dialog.add(
+	    new VerticalLayout(likeIcon, new Span("Like")),
+	    new VerticalLayout(heartIcon, new Span("Heart")),
+	    new VerticalLayout(happyIcon, new Span("Happy"))
+	);
 
     	likeButton.addClickListener(event -> {
              dialog.open();
@@ -407,10 +469,14 @@ public class CommentSectionView extends AppLayout implements HasUrlParameter<Lon
 
 	      totalReacts.decrementAndGet();
 
-              reacts.setText(String.valueOf(totalReacts.get()));
+              if(totalReacts.get() == 0){
+                 reacts.setText("");
+              }else{
+                 reacts.setText(String.valueOf(totalReacts.get()));
+              }
 
               button.setText("React");
-              button.getStyle().set("color", "var(--lumo-contrast-80pct)");
+              button.getStyle().set("color", "var(--lumo-contrast-70pct)");
 
               isReacted.set(false);
             }else{
@@ -450,6 +516,14 @@ public class CommentSectionView extends AppLayout implements HasUrlParameter<Lon
 	     if(!value.isEmpty() && !value.matches("\\s*")){
 	     	sendIcon.setEnabled(true);
 	     	sendIcon.getStyle().set("color", "var(--lumo-primary-color)");
+
+		Dialog dialog = new Dialog();
+		dialog.addClassName("all-users-dialog");
+		dialog.setHeaderTitle("Mention A Follower");
+
+	     	if(value.equals("@")){
+	     	   createUsersDiv(dialog);
+	     	}
 	     }else{
 	    	sendIcon.setEnabled(false);
 	    	sendIcon.getStyle().set("color", "var(--lumo-contrast-50pct)");
@@ -458,6 +532,58 @@ public class CommentSectionView extends AppLayout implements HasUrlParameter<Lon
 
 	Upload upload = createUploadImage();
     	addToNavbar(true, upload, inputField, sendIcon);
+    }
+
+    private void createUsersDiv(Dialog dialog){
+    	dialog.open();
+    	List<User> users = userService.getAllUsers();
+
+    	userGrid.setItems(users);
+    	userGrid.removeAllColumns();
+    	userGrid.addClassName("all-users-grid");
+
+	TextField field = new TextField();
+        field.setValueChangeMode(ValueChangeMode.EAGER);
+        field.setPlaceholder("Find more friends...");
+        field.addValueChangeListener(event -> updateList(dialog, field.getValue()));
+        dialog.add(field);
+
+	userGrid.addComponentColumn(user -> {
+            Avatar avatar = new Avatar();
+            avatar.addClassName("view-avatar");
+
+            String avatarFile = "src/main/resources/META-INF/resources/register_images/" + user.getProfileImage();
+
+            try (FileInputStream fis = new FileInputStream(avatarFile)) {
+                byte[] bytes = fis.readAllBytes();
+
+                StreamResource resource = new StreamResource(user.getProfileImage(), () -> new ByteArrayInputStream(bytes));
+
+                avatar.setImageResource(resource);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            Span fullName = new Span(user.getFullName());
+            fullName.addClassName("view-firstname");
+
+            HorizontalLayout  avatarDiv = new HorizontalLayout(avatar, fullName);
+            avatarDiv.addClassName("view-avatar-div");
+            avatarDiv.addClickListener(event -> {
+                inputField.setValue("@" + user.getFullName());
+                dialog.close();
+            });
+
+            return avatarDiv;
+        }).setAutoWidth(false);
+
+        dialog.add(userGrid);
+    }
+
+    private void updateList(Dialog dialog, String searchTerm) {
+	List<User> users = userService.findAllUsers(searchTerm.replace("@", ""));
+
+	userGrid.setItems(users);
     }
 
     private VerticalLayout createSingleComment(Artwork artwork, Button commentButton, Span commented){
@@ -616,7 +742,7 @@ public class CommentSectionView extends AppLayout implements HasUrlParameter<Lon
             for(String sessionName : sessionNames){
                 if(sessionName.equals("main")){
                    VaadinSession.getCurrent().getSession().removeAttribute("main");
-                   UI.getCurrent().navigate(CommentView.class);
+                   UI.getCurrent().navigate(MainFeed.class);
 
                 }else if(sessionName.equals("profile")){
                    VaadinSession.getCurrent().getSession().removeAttribute("profile");

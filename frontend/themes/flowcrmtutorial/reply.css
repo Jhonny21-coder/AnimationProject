@@ -1,3 +1,116 @@
+.all-users-dialog vaadin-text-field > input:placeholder-shown {
+   margin-left: 5px;
+}
+
+.all-users-dialog vaadin-text-field::part(input-field) {
+   border-radius: 20px;
+   color: white;
+   font-size: 14px;
+}
+
+.all-users-dialog vaadin-text-field {
+   width: 100%;
+}
+
+vaadin-grid.all-users-grid::part(last-column-cell){
+   width: 20px;
+   /*background: black;*/
+}
+
+vaadin-grid.all-users-grid::part(first-column-cell){
+   width: 180px;
+   border: none;
+   margin-top: 20px;
+}
+
+vaadin-grid.all-users-grid::part(row){
+   margin: 0;
+   border: none;
+}
+
+vaadin-grid.all-users-grid::part(cell){
+   font-size: 12px;
+   margin: 0;
+   background: transparent;
+   border: none;
+}
+
+vaadin-grid.all-users-grid {
+   /*background: black;*/
+   background: transparent;
+   margin-top: 20px;
+   border: none;
+}
+
+/*---------*/
+vaadin-dialog-overlay.all-users-dialog::part(header) {
+   background: var(--lumo-contrast-10pct);
+   text-color: green;
+}
+
+vaadin-dialog-overlay.all-users-dialog::part(content) {
+   background: var(--lumo-contrast-10pct);
+}
+
+vaadin-dialog-overlay.all-users-dialog::part(overlay) {
+   border-radius: 20px;
+   border: 0.9px solid gray;
+   background: black;
+   user-select: none;
+   width: 100%;
+}
+
+.all-users-div span {
+   margin-left: 10px;
+}
+
+.all-users-div {
+   display: flex;
+   align-items: center;
+   width: 100%;
+   height: 100%;
+}
+
+vaadin-button.post-more-button:active{
+   border-bottom: 1px solid var(--lumo-primary-color);
+}
+
+vaadin-button.post-more-button > vaadin-icon{
+  color: var(--lumo-contrast-30pct);
+}
+
+vaadin-button.post-more-button::part(content){
+   width: 100%;
+}
+
+vaadin-button.post-more-button {
+   color: white;
+   background: transparent;
+   border-radius: 10px;
+}
+
+vaadin-dialog-overlay.post-more-dialog::part(overlay) {
+   position: relative;
+   left: 40px;
+   bottom: 40px;
+   border-radius: 30px;
+   border: 0.9px solid gray;
+   background: black;
+   margin: none;
+   padding: none:
+}
+
+vaadin-dialog-overlay.post-more-dialog {
+   animation: fadeInRight 0.5s none;
+}
+
+vaadin-dialog-overlay.post-more-dialog::part(content){
+   background: var(--lumo-contrast-20pct);
+   color: white;
+   margin: none;
+   padding: none:
+}
+
 .total-replies {
    position: relative;
    left: 100px;

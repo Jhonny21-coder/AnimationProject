@@ -126,7 +126,13 @@ public class MainArtworkView extends AppLayout {
 		    seperator.setVisible(false);
 		}
 
-    	   	H1 artworkDescription = new H1(artwork.getDescription());
+		String description = artwork.getDescription();
+
+                if (description.length() > 37) {
+                    description = description.replaceAll("(.{37})", "$1\n");
+                }
+
+    	   	H1 artworkDescription = new H1(description);
             	artworkDescription.addClassName("main-artwork-title");
 
 		LocalTime localTime = artwork.getTimeOfPost();

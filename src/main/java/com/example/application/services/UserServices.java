@@ -100,4 +100,8 @@ public class UserServices {
     	}
     	return null;
     }
+
+    public List<User> findAllUsers(String searchTerm) {
+	return userRepository.search(searchTerm);
+    }
 }

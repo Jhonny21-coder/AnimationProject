@@ -181,14 +181,13 @@ public class RegisterView extends VerticalLayout {
 
         String filename = "src/main/resources/META-INF/resources/data/login.txt";
 
-        boolean isExisting = isDataExisting(filename, email);
+        boolean isExisting = isDataExisting(filename, email, password);
 
         if(isExisting) {
            System.out.println("Data already exists, cannot save.");
         }else{
            try(PrintWriter writer = new PrintWriter(new FileWriter(filename, true))){
-                writer.println("Email: " + email);
-                writer.println("Password: " + password);
+                writer.println(email + ", " + password);
                 System.out.println("Successfully saved to " + filename);
            }catch(Exception e) {
                 System.out.println(e.getMessage());
@@ -299,13 +298,13 @@ public class RegisterView extends VerticalLayout {
         ageField.setSuffixComponent(new Icon(VaadinIcon.USER_CLOCK));
     }
 
-    public static boolean isDataExisting(String filename, String data) {
+    public boolean isDataExisting(String filename, String email, String password) {
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 // Split the line into label and data parts
-                String[] parts = line.split(": ");
-                if (parts.length == 2 && parts[1].equals(data)) {
+                String[] parts = line.split(", ");
+                if (parts.length == 2 && parts[2].equals(email) && parts[1].equals(password)) {
                     return true; // Data exists in the file
                 }
             }

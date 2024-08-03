@@ -28,6 +28,7 @@ import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.avatar.Avatar;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.Component;
+import com.vaadin.flow.server.VaadinSession;
 
 import java.io.FileInputStream;
 import java.io.ByteArrayInputStream;
@@ -45,9 +46,6 @@ import java.text.DecimalFormat;
 
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.CopyOnWriteArrayList;
-
-import com.vaadin.flow.server.VaadinSession;
 
 @Route(value = "emc-view", layout=MainLayout.class)
 public class MainFeed extends AppLayout {
@@ -57,8 +55,6 @@ public class MainFeed extends AppLayout {
     private final HeartReactionService heartService;
     private final CommentService commentService;
     private final UserServices userService;
-    private static final CopyOnWriteArrayList<UI> uiList = new CopyOnWriteArrayList<>();
-    private Span totalReactions;
 
     public MainFeed(ArtworkService artworkService, LikeReactionService likeService,
     	HeartReactionService heartService, CommentService commentService, UserServices userService){
@@ -104,8 +100,11 @@ public class MainFeed extends AppLayout {
             Span commented = new Span();
             commented.addClassName("commented");
 
+	    Span totalReactions = new Span();
+	    totalReactions.addClassName("reacted");
+
             Button likeButton = createLikeButtonListener(totalLikeReactions, currentUser, artwork, totalReactions);
-	    Button heartButton = createHeartButtonListener(totalHeartReactions, currentUser, artwork, totalReactions );
+	    Button heartButton = createHeartButtonListener(totalHeartReactions, currentUser, artwork, totalReactions);
 	    Button commentButton = createCommentButtonListener(user, artwork);
 
 	    Icon shareButton = new Icon(VaadinIcon.LINK);
@@ -120,7 +119,7 @@ public class MainFeed extends AppLayout {
 	    Button datePosted = createDateTimePosted(artwork);
             datePosted.addClassName("feed-date-posted");
 
-	    HorizontalLayout totalReactionsDiv = createTotalReactions(totalLikeReactions, totalHeartReactions, commented, artwork);
+	    HorizontalLayout totalReactionsDiv = createTotalReactions(totalLikeReactions, totalHeartReactions, commented, artwork, totalReactions);
 	    totalReactionsDiv.addClassName("comment-reactions-div");
 
 	    formLayout.add(profileLayout, datePosted, image, totalReactionsDiv, buttonsLayout);
@@ -129,8 +128,7 @@ public class MainFeed extends AppLayout {
 	setContent(formLayout);
     }
 
-    private HorizontalLayout createTotalReactions(List<LikeReaction> totalLikeReactions, List<HeartReaction> totalHeartReactions, Span commented, Artwork artwork){
-
+    private HorizontalLayout createTotalReactions(List<LikeReaction> totalLikeReactions, List<HeartReaction> totalHeartReactions, Span commented, Artwork artwork, Span totalReactions){
         Icon likeIcon = new Icon(VaadinIcon.THUMBS_UP);
         likeIcon.addClassName("reactions-like");
 
@@ -142,8 +140,6 @@ public class MainFeed extends AppLayout {
 
         Long totals = (long) totalLikeReactions.size() + totalHeartReactions.size();
 
-	Span totalReactions = new Span();
-	totalReactions.addClassName("reacted");
         totalReactions.setText(formatValue(totals) + " reactions");
 
 	List<Comment> comments = commentService.getCommentsByArtworkId(artwork.getId());
@@ -259,7 +255,7 @@ public class MainFeed extends AppLayout {
 	AtomicLong atomicLong = new AtomicLong((long) totalLikeReactions.size());
 
         likeButton.addClickListener(event -> {
-            handleClickListener(userAlreadyLiked, atomicLong, user, artwork, "Like", likeButton);
+            handleClickListener(userAlreadyLiked, atomicLong, user, artwork, "Like", likeButton, totalReactions);
         });
 
         return likeButton;
@@ -281,13 +277,13 @@ public class MainFeed extends AppLayout {
         AtomicLong atomicLong = new AtomicLong((long) totalHeartReactions.size());
 
         heartButton.addClickListener(event -> {
-             handleClickListener(userAlreadyHearted, atomicLong, user, artwork, "Heart", heartButton);
+             handleClickListener(userAlreadyHearted, atomicLong, user, artwork, "Heart", heartButton, totalReactions);
         });
 
         return heartButton;
     }
 
-    public void handleClickListener(AtomicBoolean isAlreadyReacted, AtomicLong atomicLong, User user, Artwork artwork, String reactType, Button button){
+    public void handleClickListener(AtomicBoolean isAlreadyReacted, AtomicLong atomicLong, User user, Artwork artwork, String reactType, Button button, Span totalReactions){
 	DecimalFormat formatter = new DecimalFormat("#,##");
 
         if(isAlreadyReacted.get()){

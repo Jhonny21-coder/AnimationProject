@@ -11,6 +11,7 @@ com/example/application/views/ContactView.class
 com/example/application/services/CommentReactionService.class
 com/example/application/data/Reply.class
 com/example/application/services/StudentInfoService.class
+com/example/application/views/profile/FollowerView.class
 com/example/application/views/profile/ViewAllFollowers.class
 com/example/application/views/profile/ProfileFeed.class
 com/example/application/repository/StudentInfoRepository.class
@@ -21,6 +22,7 @@ com/example/application/data/HeartReaction.class
 com/example/application/views/CalculatorView.class
 com/example/application/repository/CommentReactionRepository.class
 com/example/application/data/LikeReaction.class
+com/example/application/data/ReplyReaction.class
 com/example/application/services/ArtworkService.class
 com/example/application/views/LoginView.class
 com/example/application/services/ContactService.class
@@ -36,13 +38,12 @@ com/example/application/repository/HeartReactionRepository.class
 com/example/application/services/HeartReactionService.class
 com/example/application/controller/PdfController.class
 com/example/application/repository/ArtworkRepository.class
-com/example/application/views/TutorialView.class
 com/example/application/views/comment/ChatView.class
 com/example/application/views/comment/DeleteComment.class
+com/example/application/services/ReplyReactionService.class
 com/example/application/repository/CommentRepository.class
 com/example/application/views/form/ChangePassword.class
 com/example/application/data/User.class
-com/example/application/views/TutorialView$Person.class
 com/example/application/views/artworks/MainArtworkView.class
 com/example/application/data/StudentInfo.class
 com/example/application/services/ReplyService.class
@@ -52,9 +53,7 @@ com/example/application/data/AbstractEntity.class
 com/example/application/views/artworks/ArtworkView.class
 com/example/application/services/LikeReactionService.class
 com/example/application/repository/FollowerRepository.class
-com/example/application/views/ChatView.class
 com/example/application/Application.class
-com/example/application/views/comment/CommentView.class
 com/example/application/config/SecurityConfig.class
 com/example/application/views/EmcView.class
 com/example/application/views/form/UpdateStudentInfo.class
@@ -70,3 +69,4 @@ com/example/application/views/RegisterView.class
 com/example/application/views/artworks/ShareArtworkView.class
 com/example/application/views/artworks/AddArtwork$1.class
 com/example/application/views/form/ForgotPassword$1.class
+com/example/application/repository/ReplyReactionRepository.class

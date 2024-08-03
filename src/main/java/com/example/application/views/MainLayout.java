@@ -1,6 +1,7 @@
 package com.example.application.views;
 
 import com.example.application.views.artworks.MainArtworkView;
+import com.example.application.views.profile.FollowerView;
 import com.example.application.views.form.*;
 import com.example.application.services.UserServices;
 import com.example.application.data.User;
@@ -69,7 +70,7 @@ public class MainLayout extends AppLayout {
             e.printStackTrace();
         }
 
-        H1 logo = new H1("The Animation Guild");
+        H1 logo = new H1("T A G");
         logo.addClassName("logo");
         logo.addClassNames(
             LumoUtility.FontSize.MEDIUM,
@@ -79,7 +80,9 @@ public class MainLayout extends AppLayout {
 	toggle.setIcon(VaadinIcon.MENU.create());
         toggle.addClassName("toggle");
 
-        HorizontalLayout header = new HorizontalLayout(toggle, logo, avatar);
+	Icon searchIcon = new Icon(VaadinIcon.SEARCH);
+
+        HorizontalLayout header = new HorizontalLayout(toggle, logo, searchIcon, avatar);
         header.addClassName("header");
         header.setDefaultVerticalComponentAlignment(FlexComponent.Alignment.CENTER);
         header.expand(logo);
@@ -170,6 +173,7 @@ public class MainLayout extends AppLayout {
     	RouterLink artworkFeedLink = createLink(MainFeed.class, VaadinIcon.GLOBE, "Artwork Feed");
 	RouterLink studentsLink = createLink(EmcView.class,VaadinIcon.GROUP,"Students");
 	RouterLink artworkLink = createLink(MainArtworkView.class,VaadinIcon.PALETTE,"Artworks");
+	RouterLink followersLink = createLink(FollowerView.class,VaadinIcon.GROUP,"Followers");
 	RouterLink accessInfoLink = createSecondaryLink(AccessInfo.class,VaadinIcon.USER,"Access Information");
 	RouterLink changePasswordLink = createSecondaryLink(ChangePassword.class,VaadinIcon.EDIT,"Change Password");
 	RouterLink signoutLink = createLink(LoginView.class,VaadinIcon.SIGN_OUT,"Sign Out");
@@ -185,7 +189,7 @@ public class MainLayout extends AppLayout {
 	details.setOpened(false);
 	details.addClassName("nav-details");
 
-	VerticalLayout layout = new VerticalLayout(navHeader, artworkFeedLink, studentsLink, artworkLink, details, signoutLink);
+	VerticalLayout layout = new VerticalLayout(navHeader, artworkFeedLink, studentsLink, artworkLink, followersLink, details, signoutLink);
 	layout.setWidthFull();
 
 	addToDrawer(layout);

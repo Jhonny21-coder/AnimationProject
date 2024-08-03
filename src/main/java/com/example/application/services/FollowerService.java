@@ -51,4 +51,8 @@ public class FollowerService {
 	    return followerRepository.search(followedUserId, searchTerm);
 	}
     }
+
+    public List<Follower> findAllFollowers(String searchTerm) {
+        return followerRepository.searchFollower(searchTerm);
+    }
 }

@@ -34,4 +34,8 @@ public interface FollowerRepository extends JpaRepository<Follower, Long> {
     List<Follower> findByFollowedUserId(Long followedUserId);
 
     Follower findByFollowerId(Long followerId);
+
+    @Query("SELECT c FROM Follower c " +
+       "WHERE (LOWER(CONCAT(c.follower.firstName, ' ', c.follower.lastName)) LIKE LOWER(CONCAT('%', :searchTerm, '%')))")
+    List<Follower> searchFollower(@Param("searchTerm") String searchTerm);
 }

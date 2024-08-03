@@ -32,13 +32,16 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.FileWriter;
-import com.example.application.views.comment.CommentView;
 
 @Route("")
 @PageTitle("Login | TAG")
 public class LoginView extends VerticalLayout {
 
     private final UserServices userService;
+    private final H1 text = new H1("Login");
+    private final EmailField emailField = new EmailField("Email");
+    private final PasswordField passwordField = new PasswordField("Password");
+    private final Button loginButton = new Button("Login");
 
     public LoginView(UserServices userService) {
         this.userService = userService;
@@ -47,7 +50,15 @@ public class LoginView extends VerticalLayout {
         setAlignItems(Alignment.CENTER);
         setJustifyContentMode(JustifyContentMode.CENTER);
 
-	H1 text = new H1("Login");
+	addClassName("form");
+	text.addClassName("login-text");
+	emailField.addClassName("email");
+	passwordField.addClassName("password");
+	loginButton.addClassName("button");
+
+	createLoginLayout();
+
+	/*H1 text = new H1("Login");
 	text.addClassName("login-text");
 
 	Anchor forgotPassword = new Anchor("forgotPassword", "Forgot password?");
@@ -64,7 +75,6 @@ public class LoginView extends VerticalLayout {
 
         // Create login button
         Button loginButton = new Button("Login");
-
 	loginButton.addClassName("button");
         loginButton.addClickListener(event -> {
             String email = emailField.getValue();
@@ -124,16 +134,82 @@ public class LoginView extends VerticalLayout {
         addClassName("form");
 	getThemeList().set(Lumo.DARK, true);
 
-	add(text, formLayout, forgotPassword, registerLink);
+	add(text, formLayout, forgotPassword, registerLink);*/
     }
 
-    public static boolean isDataExisting(String filename, String data) {
+    private void createLoginLayout(){
+        text.addClassName("login-text");
+
+        emailField.setErrorMessage("Enter a valid email address");
+        emailField.setSuffixComponent(new Icon(VaadinIcon.ENVELOPE));
+
+        loginButton.addClickListener(event -> {
+            String email = emailField.getValue();
+            String password = passwordField.getValue();
+
+            System.out.println("\nIn Login");
+            System.out.println("Email: " + email);
+            System.out.println("Password: " + password);
+
+            String filename = "src/main/resources/META-INF/resources/data/login.txt";
+
+            boolean isExisting = isDataExisting(filename, email, password);
+
+            if(isExisting) {
+               System.out.println("Data already exists, cannot save.");
+            }else{
+                try(PrintWriter writer = new PrintWriter(new FileWriter(filename, true))){
+                    writer.println(email + ", " + password);
+                    System.out.println("Successfully saved to " + filename);
+                }catch(Exception e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+
+            // Authenticate user using UserServices directly
+            if (userService.authenticate(email, password)) {
+                // Store user information in session
+                VaadinSession.getCurrent().setAttribute("user", email);
+                // Redirect to MainLayout
+                getUI().ifPresent(ui -> ui.navigate(MainFeed.class));
+                // Show notification
+                Notification.show("Login successful!", 3000, Position.TOP_CENTER)
+                        .addThemeVariants(NotificationVariant.LUMO_SUCCESS);
+            } else {
+                Notification.show("Login failed. Please check your credentials.", 3000, Position.TOP_CENTER)
+                        .addThemeVariants(NotificationVariant.LUMO_ERROR);
+            }
+        });
+
+	// Create forgot password link
+	Anchor forgotPassword = new Anchor("forgotPassword", "Forgot password?");
+        forgotPassword.addClassName("forgot-password");
+
+        // Create registration link
+        Anchor registerLink = new Anchor("register", "No account yet? Register here.");
+	registerLink.addClassName("form-link");
+
+        // Create FormLayout and add components
+        FormLayout formLayout = new FormLayout();
+        formLayout.add(emailField, passwordField, loginButton);
+        formLayout.setResponsiveSteps(
+                // Use one column by default
+                new ResponsiveStep("0", 1),
+                // Use two columns, if layout's width exceeds 500px
+                new ResponsiveStep("500px", 2));
+        // Stretch the username field over 2 columns
+        formLayout.setColspan(emailField, 2);
+
+        add(text, formLayout, forgotPassword, registerLink);
+    }
+
+    public boolean isDataExisting(String filename, String email, String password) {
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
             String line;
             while ((line = br.readLine()) != null) {
                 // Split the line into label and data parts
-                String[] parts = line.split(": ");
-                if (parts.length == 2 && parts[1].equals(data)) {
+                String[] parts = line.split(", ");
+                if (parts.length == 2 && parts[0].equals(email) && parts[1].equals(password)) {
                     return true; // Data exists in the file
                 }
             }

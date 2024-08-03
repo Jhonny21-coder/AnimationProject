@@ -331,8 +331,17 @@ public class ArtworkView extends AppLayout implements HasUrlParameter<Long> {
             	//Image artworkImage = new Image("./artwork_images/" + artwork.getArtworkUrl(), "Artwork");
             	//artworkImage.addClassName("artwork-image");
 
-            	H1 artworkDescription = new H1(artwork.getDescription());
-            	artworkDescription.addClassName("title");
+            	//H1 artworkDescription = new H1(artwork.getDescription());
+            	//artworkDescription.addClassName("title");
+
+            	String description = artwork.getDescription();
+
+		if (description.length() > 37) {
+           	    description = description.replaceAll("(.{37})", "$1\n");
+        	}
+
+        	H1 artworkDescription = new H1(description);
+                artworkDescription.addClassName("title");
 
             	LocalTime localTime = artwork.getTimeOfPost();
             	LocalDate localDate = artwork.getDateOfPost();

@@ -1,43 +1,15 @@
 
-Email: jonard@gmail.com
-Password: jonard123
-Email: jhonleemarahay@gmail.com
-Password: jhon123
-Email: lee@gmail.com
-Password: lee123 
-Email: jhonnymarahay@gmail.com
-Password: jhonny123
-Email: santos@gmail.com
-Password: marahay_santos_ylar@BSEMC-1A
-Email: hamot@gmailcom
-Password: hamot123
-Email: jhon@gmail.com
-Password: j123
-Email: hamot@gmail.com
-Password: hamot123
-Email: shane@gmail.com
-Password: shane123
-Email: rechan@gmail.com
-Password: rechan123
-Email: ashleyot05@gmail.com
-Password: ashleyotsantos
-Email: jhonny
-Password: shane123
-Email: studentmanagementsystem
-Password: marahay_santos_ylar@BSEMC-1A
-Email: ' OR '1'='1' --
-Password: ' OR '1'='1' --
-Email: ' OR '1'='1
-Password: ' OR '1'='1
-Email: ' OR '1'='1'
-Password: ' OR '1'='1'
-Email: ' OR '1'='1' ---
-Password: ' OR '1'='1' ---
-Email: OR '1'='1' --
-Password: OR '1'='1' --
-Email: lee
-Password: 
-Email: sue@gmail.com
-Password: sue123
-Email: ha
-Password: 
+jonard@gmail.com, jonard123
+jhonleemarahay@gmail.com, jhon123
+lee@gmail.com, lee123 
+jhonnymarahay@gmail.com, jhonny123
+santos@gmail.com, marahay_santos_ylar@BSEMC-1A
+hamot@gmailcom, hamot123
+jhon@gmail.com, j123
+hamot@gmail.com, hamot123
+shane@gmail.com, shane123
+rechan@gmail.com, rechan123
+ashleyot05@gmail.com, ashleyotsantos
+jhonny, shane123
+studentmanagementsystem, marahay_santos_ylar@BSEMC-1A
+sue@gmail.com, sue123

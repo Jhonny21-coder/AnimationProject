@@ -73,7 +73,13 @@ public class ShareArtworkView extends AppLayout implements HasUrlParameter<Long>
 	Span posted = createDateTimePosted(artwork);
 	posted.addClassName("share-posted");
 
-	Span title = new Span(artwork.getDescription());
+	String description = artwork.getDescription();
+
+        if (description.length() > 37) {
+           description = description.replaceAll("(.{37})", "$1\n");
+        }
+
+	Span title = new Span(description);
         title.addClassName("share-title");
 
 	User user = artwork.getUser();

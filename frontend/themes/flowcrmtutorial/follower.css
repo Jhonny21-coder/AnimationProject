@@ -1,0 +1,42 @@
+.follower-confirm-text {
+   font-size: 15px;
+   font-style: italic;
+}
+
+vaadin-confirm-dialog-overlay.follower-dialog::part(header),
+vaadin-confirm-dialog-overlay.follower-dialog::part(content),
+vaadin-confirm-dialog-overlay.follower-dialog::part(footer) {
+   background: black;
+   background: var(--lumo-contrast-10pct);
+}
+
+vaadin-confirm-dialog-overlay.follower-dialog::part(overlay) {
+   background: black;
+   border: 0.5px solid gray;
+   border-radius: 20px;
+}
+
+vaadin-confirm-dialog-overlay.follower-dialog > [slot="cancel-button"] {
+   background: var(--lumo-primary-color);
+   color: white;
+   border-radius: 10px;
+}
+
+vaadin-confirm-dialog-overlay.follower-dialog > [slot="confirm-button"] {
+   background: var(--lumo-error-color);
+   color: white;
+   border-radius: 10px;
+}
+
+.view-avatar-div {
+   width: 100%;
+}
+
+.follower-delete-icon {
+   color: var(--lumo-error-color);
+   margin-left: 5px;
+}
+
+.follower-more-icon {
+   margin-left: 120px;
+}
